@@ -1,9 +1,16 @@
-import React from 'react'
+import { connect } from 'react-redux';
+import React from 'react';
 
-function TodoList() {
+function TodoList ({ tasks }) {
   return (
-    <div>TodoList</div>
-  )
+    <ul>
+      {tasks.map(t => (
+        <li key={t.id}>{JSON.stringify(t.text)}</li>
+      ))}
+    </ul>
+  );
 }
 
-export default TodoList
+const mapStateToProps = ({ tasksList }) => tasksList;
+
+export default connect(mapStateToProps)(TodoList);
