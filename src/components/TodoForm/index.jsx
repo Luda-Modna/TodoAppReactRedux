@@ -4,7 +4,7 @@ import React from 'react';
 import { createToDo } from '../../store/slices/tasksSlice';
 import { TODO_VALIDATION_SCHEMA } from '../../utils/validationSchemas';
 
-function Filters ({ createNewTodo }) {
+function TodoForm ({ createNewTodo }) {
   const initialValue = {
     text: '',
     deadline: new Date().toISOString().split('T')[0],
@@ -45,4 +45,4 @@ const mapDispatchToProps = dispatch => ({
   createNewTodo: data => dispatch(createToDo(data)),
 });
 
-export default connect(null, mapDispatchToProps)(Filters);
+export default connect(null, mapDispatchToProps)(TodoForm);
