@@ -1,9 +1,32 @@
-import React from 'react'
+import { connect } from 'react-redux';
+import React, { useEffect } from 'react';
+import { getWeatherThunk } from '../../store/slices/weatcherSlice';
 
-function Weather() {
+function Weather ({ weather, isFetching, error, getWeather }) {
+  
+  useEffect(() => {
+    getWeather();
+  }, []);
+
   return (
-    <div>Weather</div>
-  )
+    <>
+      {isFetching && <div>Loading...</div>}
+      {error && <div>Error</div>}
+      {!isFetching && !error && weather.current && (
+        <div>
+          <h2>Погода в Києві</h2>
+          <p>Температура: {weather.current.temperature_2m}°C</p>
+          <p>Вітер: {weather.current.wind_speed_10m} м/с</p>
+        </div>
+      )}
+    </>
+  );
 }
 
-export default Weather
+const mapStateToProps = ({ weatherData }) => weatherData;
+
+const mapDispatchToProps = dispatch => ({
+  getWeather: () => dispatch(getWeatherThunk()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Weather);

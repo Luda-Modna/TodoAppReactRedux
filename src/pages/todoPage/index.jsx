@@ -2,6 +2,7 @@ import React from 'react';
 import TodoForm from '../../components/TodoForm';
 import TodoList from '../../components/TodoList';
 import Filters from '../../components/Filters';
+import Weather from '../../components/Weather';
 
 function TodoPage () {
   return (
@@ -9,6 +10,7 @@ function TodoPage () {
       <TodoForm />
       <Filters />
       <TodoList />
+      <Weather />
     </>
   );
 }

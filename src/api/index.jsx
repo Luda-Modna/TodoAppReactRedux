@@ -5,4 +5,4 @@ const axiosInstance = axios.create({
     'https://api.open-meteo.com/v1/forecast?latitude=50.4547&longitude=30.5238&current=temperature_2m,wind_speed_10m&timezone=auto',
 });
 
-export const getWeather = ()=> axiosInstance.get('/weather')
+export const getWeather = ()=> axiosInstance.get('')

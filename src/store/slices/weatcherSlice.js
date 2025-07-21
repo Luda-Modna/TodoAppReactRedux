@@ -3,7 +3,7 @@ import axios from 'axios';
 import * as API from '../../api';
 
 const initialState = {
-  weather: [],
+  weather: { current: {} },
   isFetching: false,
   error: null,
 };
