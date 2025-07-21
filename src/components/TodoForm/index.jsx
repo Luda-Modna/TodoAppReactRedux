@@ -36,6 +36,7 @@ function TodoForm ({ createNewTodo }) {
           <Field name='deadline' type='date' />
           <ErrorMessage name='deadline' component='div' />
         </label>
+        <button type='submit'>Add todo</button>
       </Form>
     </Formik>
   );
