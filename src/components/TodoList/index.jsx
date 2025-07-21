@@ -2,15 +2,23 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { deleteTodo, updateTask } from '../../store/slices/tasksSlice';
 
-function TodoList ({ tasks, filter, deleteTodoTask, updateTodoTask }) {
+function TodoList ({ tasks, status, overdue, deleteTodoTask, updateTodoTask }) {
+  const now = new Date();
+
   const isChangeDone = (id, checked) => {
     updateTodoTask(id, { isDone: checked });
   };
-  console.log('Фільтр:', filter);
 
   const filteredTasks = tasks.filter(task => {
-    if (filter === 'completed') return task.isDone;
-    if (filter === 'incomplete') return !task.isDone;
+    const isCompleted = task.isDone;
+    const isOverdue = new Date(task.deadline) < now;
+
+    if (status === 'completed' && !isCompleted) return false;
+    if (status === 'incomplete' && isCompleted) return false;
+
+    if (overdue === 'overdue' && !isOverdue) return false;
+    if (overdue === 'notOverdue' && isOverdue) return false;
+
     return true;
   });
 
@@ -36,9 +44,10 @@ function TodoList ({ tasks, filter, deleteTodoTask, updateTodoTask }) {
   );
 }
 
-const mapStateToProps = ({ tasksList, filter}) => ({
+const mapStateToProps = ({ tasksList, filter: { status, overdue } }) => ({
   ...tasksList,
-  filter,
+  status,
+  overdue,
 });
 
 const mapDispatchToProps = dispatch => ({
