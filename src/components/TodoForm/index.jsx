@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { createToDo } from '../../store/slices/tasksSlice';
 import { TODO_VALIDATION_SCHEMA } from '../../utils/validationSchemas';
+import styles from './../../pages/projectPage/ProjectPageStyle.module.sass';
 
 function TodoForm ({ createNewTodo }) {
   const initialValue = {
@@ -21,22 +22,34 @@ function TodoForm ({ createNewTodo }) {
       onSubmit={submitHandler}
       validationSchema={TODO_VALIDATION_SCHEMA}
     >
-      <Form>
-        <label>
-          <Field
-            name='text'
-            type='text'
-            placeholder='Create a new todo...'
-            autoFocus
-          />
-          <ErrorMessage name='text' component='div' />
-        </label>
-        <label>
-          Deadline:
-          <Field name='deadline' type='date' />
-          <ErrorMessage name='deadline' component='div' />
-        </label>
-        <button type='submit'>Add todo</button>
+      <Form className={styles.todoForm}>
+        <div className={styles.formContainer}>
+          <label>
+            <Field
+              className={styles.formInput}
+              name='text'
+              type='text'
+              placeholder='Create a new todo...'
+              autoFocus
+            />
+            <ErrorMessage
+              name='text'
+              component='div'
+              className={styles.errorForm}
+            />
+          </label>
+          <label>
+            Deadline:
+            <Field className={styles.formInput} name='deadline' type='date' />
+            <ErrorMessage
+              name='deadline'
+              component='div'
+              className={styles.errorForm}
+            />
+          </label>
+        </div>
+
+        <button type='submit' className={styles.button}>Add todo</button>
       </Form>
     </Formik>
   );

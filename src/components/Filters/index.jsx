@@ -32,7 +32,7 @@ function Filters ({ filterTask, filterOverdue }) {
               label='Not overdue'
             />
           </div>
-          <button className={styles.filterButton} type='submit'>Apply Filter</button>
+          <button className={styles.button} type='submit'>Apply Filter</button>
         </Form>
       </Formik>
     </aside>

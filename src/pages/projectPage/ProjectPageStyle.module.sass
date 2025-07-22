@@ -1,8 +1,8 @@
 .majorContainer
  display: flex
- justify-content: space-between
+ justify-content: space-around
  height: 100vh
- align-items: center
+ align-items: flex-start
 
 .filterContainer
  padding: 1rem
@@ -22,7 +22,7 @@
   display: block
   font-weight: 500
 
-.filterButton
+.button
  padding: 10px
  border: none
  border-radius: 6px
@@ -35,3 +35,46 @@
 
  &:hover
   background-color: rgb(144 92 213)
+
+
+.todoForm
+ display: flex
+ flex-wrap: wrap
+ justify-content: center
+ align-items: center
+ gap: 2rem
+ max-width: 700px
+ border-radius: 12px
+ box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5)
+ padding: 2rem
+
+ 
+
+.formInput
+ min-width: 200px
+ width: 100%
+ border-radius: 8px
+ border: 1px solid #ddd
+ font-size: 1rem
+ background-color: #fafafa
+ transition: border-color 0.3s ease
+ display: flex
+ justify-content: center 
+ position: relative
+ padding: 5px
+
+ &:focus
+  outline: none
+  border-color: rgb(166 110 240)
+  box-shadow: 0 0 0 2px rgba(92, 107, 192, 0.2)
+
+.formContainer
+ display: flex
+ flex-direction: column
+ gap: 1.5rem
+ width: 100%
+
+.errorForm
+ color: red
+ position: absolute
+ font-size: 0.7rem
