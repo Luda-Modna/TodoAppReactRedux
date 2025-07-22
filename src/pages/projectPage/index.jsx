@@ -1,18 +1,16 @@
 import React from 'react';
-import TodoForm from '../../components/TodoForm';
-import TodoList from '../../components/TodoList';
 import Filters from '../../components/Filters';
+import TodoComponent from '../../components/TodoComponent';
 import Weather from '../../components/Weather';
 
-function TodoPage () {
+function ProjectPage () {
   return (
     <>
-      <TodoForm />
       <Filters />
-      <TodoList />
+      <TodoComponent />
       <Weather />
     </>
   );
 }
 
-export default TodoPage;
+export default ProjectPage;

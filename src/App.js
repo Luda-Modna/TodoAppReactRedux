@@ -1,7 +1,7 @@
-import TodoPage from './pages/todoPage';
+import ProjectPage from './pages/projectPage';
 
 function App () {
-  return <TodoPage />;
+  return <ProjectPage />;
 }
 
 export default App;
