@@ -2,10 +2,11 @@ import { connect } from 'react-redux';
 import { Formik, Form } from 'formik';
 import { setFilter, setOverdueFilter } from '../../store/slices/filterSlice';
 import InputFilters from './InputFilters';
+import styles from './../../pages/projectPage/ProjectPageStyle.module.sass'
 
 function Filters ({ filterTask, filterOverdue }) {
   return (
-    <aside>
+    <aside className={styles.filterContainer}>
       <h2>Filter</h2>
       <Formik
         initialValues={{ status: 'all', overdue: 'all' }}
@@ -15,13 +16,13 @@ function Filters ({ filterTask, filterOverdue }) {
         }}
       >
         <Form>
-          <div>
+          <div className={styles.filterGroup}>
             <h3>Status</h3>
             <InputFilters name='status' value='all' label='All' />
             <InputFilters name='status' value='completed' label='Completed' />
             <InputFilters name='status' value='incomplete' label='Incomplete' />
           </div>
-          <div>
+          <div className={styles.filterGroup}>
             <h3>Overdue</h3>
             <InputFilters name='overdue' value='all' label='All' />
             <InputFilters name='overdue' value='overdue' label='Overdue only' />
@@ -31,7 +32,7 @@ function Filters ({ filterTask, filterOverdue }) {
               label='Not overdue'
             />
           </div>
-          <button type='submit'>Apply Filter</button>
+          <button className={styles.filterButton} type='submit'>Apply Filter</button>
         </Form>
       </Formik>
     </aside>
