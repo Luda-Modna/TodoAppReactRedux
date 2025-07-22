@@ -47,8 +47,7 @@
  border-radius: 12px
  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5)
  padding: 2rem
-
- 
+ margin: 1rem
 
 .formInput
  min-width: 200px
@@ -78,3 +77,53 @@
  color: red
  position: absolute
  font-size: 0.7rem
+
+.tasksList
+ list-style: none
+ padding: 0
+ 
+
+.task 
+ display: flex
+ flex-direction: column
+ gap: 0.5rem
+ padding: 1rem
+ border: 1px solid #ccc
+ background-color: #fdfdfd
+ border-radius: 12px
+ box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5)
+ margin: 1rem
+
+.taskRow
+ display: flex
+ align-items: center
+ gap: 1rem
+
+.taskInfo
+ margin: 0
+
+.notDone 
+ box-shadow: 0 6px 18px rgba(244, 9, 9, 0.5)
+
+.notOverdue
+ border-left: 4px solid rgba(43, 206, 56, 0.5)
+  
+.overdue 
+ border-left: 4px solid #e74c3c 
+
+.done 
+ box-shadow: 0 6px 18px rgba(43, 206, 56, 0.5)
+
+
+.deleteButton
+ padding: 0.4rem 0.8rem
+ background-color: #f091a2
+ color: white
+ border: none
+ border-radius: 6px
+ font-size: 0.9rem
+ cursor: pointer
+ transition: background-color 0.3s ease
+
+ &:hover 
+  background-color: #cb7484
