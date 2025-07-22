@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
 import * as API from '../../api';
 
 const initialState = {
@@ -10,7 +9,7 @@ const initialState = {
 
 export const getWeatherThunk = createAsyncThunk(
   'weather/getWeather',
-  async (payload, thunkAPI) => {
+  async ( thunkAPI) => {
     try {
       const { data } = await API.getWeather();
       return data;

@@ -7,7 +7,7 @@ const filterSlice = createSlice({
   initialState: initialState,
   reducers: {
     setFilter: (state, { payload }) => {
-      return { ...state, ...payload };
+      state.status = payload;
     },
     setOverdueFilter: (state, { payload }) => {
       state.overdue = payload;
